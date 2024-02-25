@@ -16,7 +16,7 @@ This project creates a simple web page where a button displays a random color na
 
 **How to Run:**
 
-1. Save the HTML file (e.g., `index.html`) and its accompanying JavaScript file (e.g., `script.js`).
+1. Save the HTML file 
 2. Open the HTML file in a web browser.
 3. Click the "Get Random Color" button to see the effect!
 
@@ -38,8 +38,6 @@ Feel free to fork the project and make your own contributions. We welcome pull r
 This project consists of the following files:
 
 - `index.html`: The HTML file containing the page layout and basic structure.
-- `script.js`: The JavaScript file containing the logic for generating colors and setting the display.
-- `README.md`: This file (you just generated).
 
 ## Installation and Running
 
