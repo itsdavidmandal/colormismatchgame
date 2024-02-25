@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Color Mismatch (Guaranteed)</title>
+    <title>Random Color Mismatch</title>
     <style>
         body {
             font-family: sans-serif;
@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-    <h1>Random Color Mismatch (Guaranteed)</h1>
+    <h1>Random Color Mismatch</h1>
     <button id="color-button">Get Random Color</button>
     <p id="color-display"></p>
 
@@ -34,9 +34,9 @@
         const colorDisplay = document.getElementById('color-display');
 
         const colors = [
-            'red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet',
-            'crimson', 'fuchsia', 'magenta', 'teal', 'turquoise', 'aqua', 'navy',
-            'brown', 'purple', 'gray', 'silver', 'gold', 'black', 'white'
+            'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet',
+            'Crimson', 'Fuchsia', 'Magenta', 'Teal', 'Turquoise', 'Aqua', 'Navy',
+            'Brown', 'Purple', 'Gray', 'Silver', 'Gold', 'Black', 'White'
         ];
 
         function getRandomColor() {
@@ -46,42 +46,11 @@
         }
 
         function setRandomColor() {
-            let randomColor = getRandomColor();
-            let mismatchedColor;
-
-            // Loop until a contrasting color is found
-            while (mismatchedColor === undefined || mismatchedColor === randomColor) {
-                mismatchedColor = getRandomColor();
-
-                // Ensure sufficient contrast for accessibility
-                const contrastRatio = calculateContrastRatio(mismatchedColor, randomColor);
-                if (contrastRatio < 4.5) { // WCAG AA requires 4.5:1 for text
-                    mismatchedColor = undefined; // Try again if contrast is low
-                }
-            }
+            const randomColor = getRandomColor();
+            const mismatchedColor = getRandomColor(); // Get a different color for the text
 
             colorDisplay.textContent = randomColor;
-            colorDisplay.style.color = mismatchedColor;
-        }
-
-        // Function to calculate contrast ratio between two colors
-        function calculateContrastRatio(color1, color2) {
-            const rgb1 = hexToRgb(color1);
-            const rgb2 = hexToRgb(color2);
-            const l1 = (Math.max(...rgb1) + Math.min(...rgb1)) / 255;
-            const l2 = (Math.max(...rgb2) + Math.min(...rgb2)) / 255;
-            const contrastRatio = (l1 + 0.05) / (l2 + 0.05);
-            return contrastRatio;
-        }
-
-        // Function to convert hex color to RGB array
-        function hexToRgb(hex) {
-            const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-            return result ? [
-                parseInt(result[1], 16),
-                parseInt(result[2], 16),
-                parseInt(result[3], 16)
-            ] : null;
+            colorDisplay.style.color = mismatchedColor; // Set the text color to a different color
         }
 
         colorButton.addEventListener('click', setRandomColor);
