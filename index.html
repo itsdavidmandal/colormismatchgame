@@ -1,59 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Color Mismatch</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        #color-button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #ddd;
-            cursor: pointer;
-        }
-        #color-display {
-            margin-top: 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Color Mismatch</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 50px;
+      text-align: center;
+      /* Center the content vertically */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh; /* Ensure content fills viewport height */
+    }
+    #color-button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ddd;
+      cursor: pointer;
+      /* Center the button horizontally */
+      display: block;
+      margin: 0 auto;
+    }
+    #color-display {
+      margin-top: 20px;
+      font-size: 80px; /* Increase text size to 80px */
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <h1>Random Color Mismatch</h1>
-    <button id="color-button">Get Random Color</button>
-    <p id="color-display"></p>
+  <h1>Random Color Mismatch</h1>
+  <button id="color-button">Get Random Color</button>
+  <p id="color-display"></p>
 
-    <script>
-        const colorButton = document.getElementById('color-button');
-        const colorDisplay = document.getElementById('color-display');
+  <script>
+    const colorButton = document.getElementById('color-button');
+    const colorDisplay = document.getElementById('color-display');
 
-        const colors = [
-            'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet',
-            'Crimson', 'Fuchsia', 'Magenta', 'Teal', 'Turquoise', 'Aqua', 'Navy',
-            'Brown', 'Purple', 'Gray', 'Silver', 'Gold', 'Black', 'White'
-        ];
+    const colors = [
+      'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet',
+      'Crimson', 'Fuchsia', 'Magenta', 'Teal', 'Turquoise', 'Aqua', 'Navy',
+      'Brown', 'Purple', 'Gray', 'Silver', 'Gold', 'Black', 'White'
+    ];
 
-        function getRandomColor() {
-            const randomIndex = Math.floor(Math.random() * colors.length);
-            const randomColor = colors[randomIndex];
-            return randomColor;
-        }
+    function getRandomColor() {
+      const randomIndex = Math.floor(Math.random() * colors.length);
+      const randomColor = colors[randomIndex];
+      return randomColor;
+    }
 
-        function setRandomColor() {
-            const randomColor = getRandomColor();
-            const mismatchedColor = getRandomColor(); // Get a different color for the text
+    function setRandomColor() {
+      const randomColor = getRandomColor();
+      const mismatchedColor = getRandomColor(); // Get a different color for the text
 
-            colorDisplay.textContent = randomColor;
-            colorDisplay.style.color = mismatchedColor; // Set the text color to a different color
-        }
+      colorDisplay.textContent = randomColor;
+      colorDisplay.style.color = mismatchedColor; // Set the text color to a different color
+    }
 
-        colorButton.addEventListener('click', setRandomColor);
-    </script>
+    colorButton.addEventListener('click', setRandomColor);
+  </script>
 </body>
 </html>
